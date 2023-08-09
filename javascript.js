@@ -37,4 +37,14 @@ function playRound(playerSelection, computerSelection) {
 let playerSelection = "Rock".toLowerCase();
 let computerSelection = getComputerChoice().toLowerCase();
 
-console.log(playRound(playerSelection, computerSelection));
+//console.log(playRound(playerSelection, computerSelection));
+
+function game() {
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(playRound(playerSelection, computerSelection));
+}
+
+game();
