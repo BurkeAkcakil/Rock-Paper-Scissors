@@ -1,9 +1,5 @@
 console.log("Hello World")
 
-let userScore = 0
-let computerScore = 0
-
-
 
 function getComputerChoice() {
     const randomNumber = (Math.floor(Math.random() * 3));
@@ -27,59 +23,30 @@ function playRound(playerSelection, computerSelection) {
         return "It's a tie!";
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
-        userScore += 1;
+        playerScoreCount += 1;
+        playerScoreDiv.textContent = `Player Score: ${playerScoreCount}`;
         return "You win! Rock beats Scissors!";
         
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
-        userScore += 1;
+        playerScoreCount += 1;
+        playerScoreDiv.textContent = `Player Score: ${playerScoreCount}`;
         return "You win! Scissors beat Paper!";
         
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
-        userScore += 1;
+        playerScoreCount += 1;
+        playerScoreDiv.textContent = `Player Score: ${playerScoreCount}`;
         return "You win! Paper beats Rock!";
         
     }
     else {
-        computerScore += 1;
+        computerScoreCount += 1;
+        computerScoreDiv.textContent = `Computer Score: ${computerScoreCount}`;
         return "You lose!";
         
     }
 }
-
-//let playerSelection = .toLowerCase();
-//let computerSelection = getComputerChoice().toLowerCase();
-
-
-// LOGIC THAT PLAYS 5 ROUNDS //
-
-/* function game() {
-    for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("What is your move? Rock, Paper or Scissors?").toLowerCase();
-    let computerSelection = getComputerChoice().toLowerCase();
-    console.log(playRound(playerSelection, computerSelection));
-    console.log("Player: " + userScore);
-    console.log("Computer: " +computerScore);
-
-    }
-}
-
-*/ 
-// LOGIC CONSOLE LOG //
-/*
-game();
-
-if (userScore == computerScore) {
-    console.log(`Game Result: Ugh it's a Tie! ${userScore} to ${computerScore}`);
-}
-else if (userScore > computerScore) {
-    console.log(`Game Result: Congrats! You win! ${userScore} to ${computerScore}`);
-}
-else {
-    console.log(`Game Result: You lose! ${computerScore} to ${userScore}`);
-}
-*/ 
 
 
 
@@ -101,7 +68,21 @@ btn3.addEventListener("click", () => {
     return console.log(playRound("scissors", computerSelection));
 });
 
-const container = document.querySelector("#container");
-const content = document.createElement("div");
-const buttons = document.querySelectorAll('button');
+const resultDiv = document.getElementById("result");
+//resultDiv.textContent = `Player: ${playerSelection} vs Computer: ${computerSelection}`;
 
+let playerScoreCount = 0;
+let computerScoreCount = 0;
+
+const playerScoreDiv = document.getElementById("playerScore");
+const computerScoreDiv = document.getElementById("computerScore");
+
+function checkForGameWinner() {
+    if (playerScoreCount >= 5 || computerScoreCount >= 5) {
+        resultDiv.textContent = playerScoreCount >= 5 ? "Player wins the game!" : "Computer wins the game!";
+        playerScoreCount = 0;
+        computerScoreCount = 0;
+        playerScoreDiv.textContent = `Player Score: 0`;
+        computerScoreDiv.textContent = `Computer Score: 0`;
+    }
+}
