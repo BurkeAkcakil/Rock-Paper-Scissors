@@ -20,6 +20,8 @@ function getComputerChoice() {
     }
 }
 
+
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "It's a tie!";
@@ -47,7 +49,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //let playerSelection = .toLowerCase();
-let computerSelection = getComputerChoice().toLowerCase();
+//let computerSelection = getComputerChoice().toLowerCase();
+
+
 // LOGIC THAT PLAYS 5 ROUNDS //
 
 /* function game() {
@@ -76,12 +80,28 @@ else {
     console.log(`Game Result: You lose! ${computerScore} to ${userScore}`);
 }
 */ 
-//console.log(playRound("rock", computerSelection));
-
-let rockPlay = () => {
-playRound("rock", computerSelection);
-};
 
 
-let rockPlayBut = document.getElementById("but1").addEventListener("click", rockPlay);
+
+const btn1 = document.querySelector("#but1");
+btn1.addEventListener("click", () => {
+    computerSelection = getComputerChoice().toLowerCase();
+    return console.log(playRound("rock", computerSelection));
+});
+
+const btn2 = document.querySelector("#but2");
+btn2.addEventListener("click", () => {
+    computerSelection = getComputerChoice().toLowerCase();
+    return console.log(playRound("paper", computerSelection));
+});
+
+const btn3 = document.querySelector("#but3");
+btn3.addEventListener("click", () => {
+    computerSelection = getComputerChoice().toLowerCase();
+    return console.log(playRound("scissors", computerSelection));
+});
+
+const container = document.querySelector("#container");
+const content = document.createElement("div");
+const buttons = document.querySelectorAll('button');
 
