@@ -3,6 +3,8 @@ console.log("Hello World")
 let userScore = 0
 let computerScore = 0
 
+
+
 function getComputerChoice() {
     const randomNumber = (Math.floor(Math.random() * 3));
     switch (randomNumber) {
@@ -44,7 +46,11 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+//let playerSelection = .toLowerCase();
+let computerSelection = getComputerChoice().toLowerCase();
+// LOGIC THAT PLAYS 5 ROUNDS //
+
+/* function game() {
     for (let i = 0; i < 5; i++) {
     let playerSelection = prompt("What is your move? Rock, Paper or Scissors?").toLowerCase();
     let computerSelection = getComputerChoice().toLowerCase();
@@ -55,7 +61,9 @@ function game() {
     }
 }
 
-
+*/ 
+// LOGIC CONSOLE LOG //
+/*
 game();
 
 if (userScore == computerScore) {
@@ -67,3 +75,13 @@ else if (userScore > computerScore) {
 else {
     console.log(`Game Result: You lose! ${computerScore} to ${userScore}`);
 }
+*/ 
+//console.log(playRound("rock", computerSelection));
+
+let rockPlay = () => {
+playRound("rock", computerSelection);
+};
+
+
+let rockPlayBut = document.getElementById("but1").addEventListener("click", rockPlay);
+
